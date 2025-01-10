@@ -157,7 +157,7 @@ jobs:
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}}
           scope: ${{ secrets.VERCEL_ORG_ID }}
-          alias-domains: presq.vercel.app
+          alias-domains: my-personal-project-six.vercel.app
           github-comment: false
 
   deploy-production:
@@ -177,6 +177,6 @@ jobs:
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}}
           scope: ${{ secrets.VERCEL_ORG_ID }}
-          alias-domains: www.presq.studio
+          # alias-domains: www.presq.studio
           vercel-args: --prod
           github-comment: false
