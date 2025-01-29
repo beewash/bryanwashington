@@ -4,21 +4,21 @@ on:
   workflow_dispatch:
     inputs:
       deploy_trigger_source:
-        default: "github"
+        default: 'github'
 jobs:
   check-benchmarks:
     name: Check Benchmarks
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: "./"
+        working-directory: './'
     steps:
       - uses: actions/checkout@v3
 
       - uses: actions/setup-node@v3
         with:
           node-version: 21.1.0
-          cache: "yarn"
+          cache: 'yarn'
           cache-dependency-path: yarn.lock
 
       - name: Install Dependencies
@@ -34,7 +34,7 @@ jobs:
 
       - name: Check Formatting
         id: check_formatting
-        run: yarn check-prettier
+        run: yarn prettier:check
 
   deploy_preview:
     name: Deploy Preview
@@ -48,7 +48,7 @@ jobs:
       preview-url: ${{ steps.vercel.outputs.preview-url }}
     defaults:
       run:
-        working-directory: "./"
+        working-directory: './'
     steps:
       - uses: actions/checkout@v3
       - uses: amondnet/vercel-action@v25
@@ -70,7 +70,7 @@ jobs:
       pull-requests: write
     defaults:
       run:
-        working-directory: "./"
+        working-directory: './'
     steps:
       - uses: actions/checkout@v4
 
@@ -136,7 +136,7 @@ jobs:
           message: |
             ${{ steps.format_lighthouse_score.outputs.comment }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          repo-token-user-login: "github-actions[bot]" # The user.login for temporary GitHub tokens
+          repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
           allow-repeats: false # This is the default
 
   deploy_staging:
@@ -146,7 +146,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     defaults:
       run:
-        working-directory: "./"
+        working-directory: './'
     steps:
       - uses: actions/checkout@v3
       - uses: amondnet/vercel-action@v25
@@ -167,7 +167,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: "./"
+        working-directory: './'
     steps:
       - uses: actions/checkout@v3
       - uses: amondnet/vercel-action@v25

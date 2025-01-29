@@ -1,0 +1,19 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["security", "@typescript-eslint"],
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:security/recommended"
+  ],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": 1,
+    "@typescript-eslint/ban-ts-ignore": 0,
+    "@typescript-eslint/ban-ts-comment": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "no-unused-vars": 0,
+    "security/detect-object-injection": "off",
+    "jsx-a11y/alt-text": "off"
+  }
+}
